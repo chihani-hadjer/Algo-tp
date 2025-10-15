@@ -1,0 +1,68 @@
+#include<stdio.h>
+//function return the sum of two integers
+int  add (int a, int b){
+	return a+b;
+}
+//function return tle max of two integers
+int max(int a, int b){
+	int max;
+	if (a>b) max=a;
+	else max=b;
+	return max;
+}
+//function return the average of  an array
+float average(float arr[], int n){
+	float sum=0;
+	for(int i=0;i<n;i++){
+		sum += arr[i];
+	}
+	return sum/n;
+}
+//main program
+int main(){
+	int a,b,c,d,n;
+	
+	//give the value of elements a b c d
+	printf("Give the value of a :");
+	scanf("%d", &a);
+	printf("Give the value of b :");
+	scanf("%d", &b);
+	printf("Give the value of c :");
+	scanf("%d", &c);
+	printf("Give the value of d :");
+	scanf("%d", &d);
+	
+	//the sum of elements a b c d
+	int sum1 = add(a,b);
+	int sum2 =add(sum1,c);
+	int total =add(sum2,d);
+	
+	//the result of add
+	printf("the addition = %d \n", total);
+	
+	//the largest number
+	printf("the largest number = %d \n",max(max(a,b),c));
+	
+	//the size of array
+	printf("Give the value of n : ");
+	scanf("%d",&n);
+	
+	//the elements of array
+	float arr[n];
+	for(int i=0;i<n;i++){
+		printf("put the elements %d  :", i+1);
+		scanf("%f", &arr[i]);
+	}
+	
+	//the largest number of array
+	float m = arr[0];
+	for(int i=1 ;i<n;i++){
+		m = max(m, arr[i]);
+	}
+	
+	//the result of the largest number & the average of array
+	printf("The largest number = %.2f \n",m);
+	printf("the average = %.2f \n", average(arr,n));
+	
+	return 0;	
+}
