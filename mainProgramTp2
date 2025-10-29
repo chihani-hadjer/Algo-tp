@@ -14,7 +14,7 @@ void ReverseString(char *start, char *end);
 //Main programme
 int main() {
 	  char *str;
-  	int n;
+      int n;
 	
 	
 	printf("Entrer la taille maximale de la chaine : ");
