@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//la déclaratin des fonctins pour l'utiliser
+char *LoadString(int N);
+int StringLength(char *str);
+void LoadArray(char *p, char arr[]);
+void ReverseArray(char arr[], char rev[], int n);
+void DisplayArray(char arr[], int n);
+int SumStringASCII(char *p);
+void ReverseString(char *start, char *end);
+
+
+//Main programme
+int main() {
+	  char *str;
+  	int n;
+	
+	
+	printf("Entrer la taille maximale de la chaine : ");
+	scanf("%d",&n);
+	getchar();
+	
+	str = LoadString(n);
+	int len = StringLength(str);
+	printf("la longueur est : %d\n",len);
+	
+	
+	printf("\n==================== Resultat =================\n");
+	
+	char arr[len + 1], rev[len + 1];
+	LoadArray(str, arr);
+	
+	printf("\nChaine originale : ");
+	DisplayArray(arr, len);
+	
+	ReverseArray(arr, rev, len);
+	printf("Chaine inverse : ");
+	DisplayArray(rev, len);
+	
+	int sum = SumStringASCII(str);
+	printf("Somme de ASCII : %d\n", sum);
+	
+	ReverseString(str, str+len - 1);
+	printf("Chaine inverse (recursion) : %s\n", str);
+	
+	free(str); //libérer la mémoire
+	return 0;
+}
